@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0"
+    />
+    <title>MediCare</title>
+
+    <!-- Favicons -->
+    <link
+      type="image/x-icon"
+      href="{% static 'HealthStack-System/images/Normal/favicon.png' %}"
+      rel="icon"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/css/Normal/bootstrap.min.css' %}"
+    />
+
+    <!-- FontAwesome CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/plugins/Normal/fontawesome/css/fontawesome.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/plugins/Normal/fontawesome/css/all.min.css' %}"
+    />
+
+    <!-- Main CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/css/Normal/style.css' %}"
+    />
+  </head>
+  <body>
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <!-- Header -->
+      <header class="header">{% include 'navbar_home.html' %}</header>
+      <!-- /Header -->
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb-bar">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-md-12 col-12">
+              <nav aria-label="breadcrumb" class="page-breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a href="index-2.html">Home</a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    About Us
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Breadcrumb -->
+
+      <!-- Page Content -->
+      <div class="about-content">
+        <div class="container-fluid">
+          <h2>About Us</h2>
+          <p>
+            Welcome to MediCare, where innovation meets excellence. We are
+            dedicated to providing cutting-edge solutions tailored to meet the
+            needs of modern healthcare facilities.
+          </p>
+          <p>
+            Our mission is to empower hospitals and clinics with advanced
+            technology that enhances patient care, streamlines operations, and
+            improves efficiency.
+          </p>
+          <h3>Our Core Values:</h3>
+          <ul>
+            <li>Innovation in Healthcare Technology</li>
+            <li>Patient-Centric Solutions</li>
+            <li>Collaboration and Teamwork</li>
+            <li>Commitment to Quality</li>
+            <li>Continuous Improvement</li>
+          </ul>
+        </div>
+      </div>
+      <!-- /Page Content -->
+
+      <!-- Footer -->
+      {% include 'footer.html' %}
+      <!-- /Footer -->
+    </div>
+    <!-- /Main Wrapper -->
+
+    <!-- jQuery -->
+    <script src="{% static 'HealthStack-System/js/Normal/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap Core JS -->
+    <script src="{% static 'HealthStack-System/js/Normal/popper.min.js' %}"></script>
+    <script src="{% static 'HealthStack-System/js/Normal/bootstrap.min.js' %}"></script>
+
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/plugins/Normal/fontawesome/css/fontawesome.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/plugins/Normal/fontawesome/css/all.min.css' %}"
+    />
+
+    <!-- Slick JS -->
+    <script src="{% static 'HealthStack-System/js/Normal/slick.js' %}"></script>
+
+    <!-- Custom JS -->
+    <script src="{% static 'HealthStack-System/Outside_assets/js/script.js' %}"></script>
+  </body>
+</html>
