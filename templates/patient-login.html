@@ -95,24 +95,17 @@
                   placeholder="Password"
                 />
                 <label for="floatingInput">Password</label>
-
-                <!-- Show Password Checkbox -->
-                <input
-                  type="checkbox"
-                  class="mt-2"
-                  onclick="myFunction11()"
-                />Show Password
-              </div>
-
-              <!-- Forgot Password Link -->
-              <div class="text-right">
-                <a
-                  class="forgot-link"
-                  href="{% url 'reset-password' %}"
-                  style="text-decoration: none"
-                >
-                  Forgot Password?
-                </a>
+                <div class="show-and-forget">
+                  <div class="show-pass">
+                    <p>Show Password</p>
+                    <input type="checkbox" onclick="myFunction11()" />
+                  </div>
+                  <div class="forget-pass">
+                    <a class="forgot-link" href="{% url 'reset-password' %}">
+                      Forgot Password ?
+                    </a>
+                  </div>
+                </div>
               </div>
 
               <!-- Login Button -->
@@ -125,21 +118,14 @@
 
               <!-- Register and Admin Links -->
               <div class="text-center dont-have">
-                Don't have an account?
-                <a
-                  href="{% url 'patient-register' %}"
-                  style="text-decoration: none"
-                  >Register</a
-                >
-                <br />
-                <b
-                  >Want to login as
-                  <a
-                    href="{% url 'admin-login' %}"
-                    style="color: skyblue; text-decoration: none"
-                    >Admin?</a
-                  >
-                </b>
+                <div class="regist">
+                  Don't have an account?
+                  <a href="{% url 'patient-register' %}">Register</a>
+                </div>
+                <div class="log-admin">
+                  Want to login as
+                  <a href="{% url 'admin-login' %}">Admin ?</a>
+                </div>
               </div>
             </form>
           </div>

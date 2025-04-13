@@ -2225,16 +2225,20 @@ html.menu-opened body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 .login-header h3 {
-  font-size: 1.6rem;
-  margin-bottom: 10px;
   color: #007bff;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+}
+.login-header h3 span {
+  color: #041a2d;
 }
 
 .login-header a {
   color: #007bff;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .login-header a:hover {
@@ -2257,46 +2261,58 @@ html.menu-opened body {
 .form-floating label {
   position: absolute;
   top: 50%;
-  left: 10px;
+  left: 5px;
   transform: translateY(-50%);
   font-size: 0.9rem;
   color: #aaa;
   transition: all 0.3s ease;
 }
 
+.form-floating input:focus {
+  border-color: #007bff;
+}
+
 .form-floating input:focus + label,
 .form-floating input:not(:placeholder-shown) + label {
-  top: -10px;
-  font-size: 0.8rem;
+  top: -4px;
+  font-size: 1rem;
   color: #007bff;
+  left: 4px;
+  background-color: white;
+  padding: 0 4px;
+  height: auto;
+  opacity: 1 !important;
 }
 
-/* Show Password Checkbox */
-input[type="checkbox"] {
-  margin-top: 10px;
+/* Show Password Checkbox & Forget Password */
+.form-floating .show-and-forget {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+.form-floating .show-pass {
+  display: flex;
+  align-items: center;
+}
+.form-floating .show-pass p {
+  margin: 0;
 }
 
-/* Forgot Password Link */
-.text-right {
-  text-align: right;
-  margin-top: 10px;
+.form-floating .show-pass input[type="checkbox"] {
+  width: 30px;
 }
 
 .forgot-link {
   color: #007bff;
   font-size: 0.9rem;
-  text-decoration: none;
-}
-
-.forgot-link:hover {
-  text-decoration: underline;
 }
 
 /* Login Button */
 .login-btn {
   width: 100%;
-  margin-top: 20px;
-  padding: 12px;
+  margin-top: 10px;
+  padding: 10px;
   font-size: 1rem;
   background-color: #007bff;
   color: #fff;
@@ -2312,18 +2328,19 @@ input[type="checkbox"] {
 /* Register and Admin Links */
 .dont-have {
   margin-top: 20px;
-  font-size: 0.9rem;
   text-align: center;
 }
 
-.dont-have a {
-  color: #007bff;
-  text-decoration: none;
+.dont-have .regist {
+  margin-bottom: 15px;
 }
 
-.dont-have a:hover {
-  text-decoration: underline;
+.dont-have .regist a:hover,
+.dont-have .log-admin a:hover {
+  font-weight: bold;
+  color: #007bff;
 }
+
 
 /* Responsive Design */
 @media (max-width: 992px) {
