@@ -2187,14 +2187,28 @@ html.menu-opened body {
 	14. Login
 -----------------------*/
 
-.login-page {
+.login-page,
+.doctor-login,
+.reset-page {
   display: flex;
   align-items: center;
   min-height: calc(100vh - 80px);
   background-color: #deeefd;
 }
 
-.login-page .container-fluid {
+.reset-page,
+.mail-sent {
+  background-color: #fff;
+  text-align: center;
+  min-height: calc(100vh - 80px);
+  max-height: calc(100vh - 80px);
+  overflow: hidden;
+}
+
+.login-page .container-fluid,
+.doctor-login .container-fluid,
+.reset-page .container-fluid,
+.mail-sent .container-fluid {
   display: flex;
   align-items: center;
   padding: 60px;
@@ -2202,16 +2216,17 @@ html.menu-opened body {
 }
 
 /* Image Container */
-.login-page .img-container {
+.login-page .img-container,
+.doctor-login .img-container,
+.reset-page .img-container,
+.mail-sent .img-container {
   flex: 1;
 }
 
-.login-page .img-container img {
-  max-width: 100%;
-}
-
 /* Form Container */
-.login-page .form-container {
+.login-page .form-container,
+.doctor-login .form-container,
+.reset-page .form-container {
   min-height: 450px;
   flex: 1;
   background-color: #fff;
@@ -2220,28 +2235,48 @@ html.menu-opened body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.mail-sent .msg-container {
+  flex: 1;
+  font-size: 1.5rem;
+}
+
+.mail-sent .msg-container h1 {
+  color: #007bff;
+}
+
+.reset-page .form-container {
+  background-color: #deeefd;
+  min-height: fit-content;
+}
+
 /* Login Header */
-.login-header {
+.login-page .form-container .login-header,
+.doctor-login .form-container .login-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
-.login-header h3 {
+
+.login-page .form-container .login-header h3,
+.doctor-login .form-container .login-header h3 {
   color: #007bff;
   margin-bottom: 0;
   font-size: 1.1rem;
 }
-.login-header h3 span {
+.login-page .login-header h3 span,
+.doctor-login .login-header h3 span {
   color: #041a2d;
 }
 
-.login-header a {
+.login-page .login-header a,
+.doctor-login .login-header a {
   color: #007bff;
   font-size: 1rem;
 }
 
-.login-header a:hover {
+.login-page .login-header a:hover,
+.doctor-login .login-header a:hover {
   font-weight: bold;
 }
 
@@ -2268,12 +2303,16 @@ html.menu-opened body {
   transition: all 0.3s ease;
 }
 
-.form-floating input:focus {
+.form-floating input:focus,
+.reset-page .form-group input:focus {
   border-color: #007bff;
 }
 
-.form-floating input:focus + label,
-.form-floating input:not(:placeholder-shown) + label {
+.login-page .form-floating input:focus + label,
+.doctor-login .form-floating input:focus + label,
+.login-page .form-floating input:not(:placeholder-shown) + label,
+.doctor-login .form-floating input:not(:placeholder-shown) + label,
+.reset-page .form-floating input:not(:placeholder-shown) + label {
   top: -4px;
   font-size: 1rem;
   color: #007bff;
@@ -2341,16 +2380,20 @@ html.menu-opened body {
   color: #007bff;
 }
 
-
 /* Responsive Design */
 @media (max-width: 992px) {
-  .login-page .img-container {
+  .login-page .img-container,
+  .doctor-login .img-container,
+  .reset-page .img-container,
+  .mail-sent .img-container {
     display: none;
   }
 }
 
 @media (max-width: 768px) {
-  .login-header h3 {
+  .login-page .login-header h3,
+  .doctor-login .login-header h3,
+  .reset-page .login-header h3 {
     font-size: 1.5rem;
   }
 
@@ -2365,10 +2408,19 @@ html.menu-opened body {
 }
 
 @media (max-width: 576px) {
-  .form-container {
+  .reset-page .container-fluid {
     padding: 20px;
   }
-
+  .reset-page .form-container {
+    padding: 20px;
+    min-height: 400px;
+  }
+  .reset-page .form-container .login-header {
+    margin-top: 40px;
+  }
+  .reset-page .form-container form {
+    margin-top: 60px;
+  }
   .login-btn {
     font-size: 0.9rem;
   }
