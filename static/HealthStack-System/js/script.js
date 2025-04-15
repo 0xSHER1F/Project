@@ -1,9 +1,3 @@
-/*
-Author       : Dreamguys
-Template Name: Doccure - Bootstrap Template
-Version      : 1.0
-*/
-
 (function ($) {
   "use strict";
 
@@ -400,3 +394,21 @@ Version      : 1.0
   }
   $(window).scroll(animateElements);
 })(jQuery);
+
+document.addEventListener("DOMContentLoaded", function () {
+  const lis = document.querySelectorAll(".dashboard-menu ul li");
+
+  lis.forEach((li) => {
+    li.addEventListener("click", function () {
+      // Remove 'active' from all li elements
+      lis.forEach((item) => item.classList.remove("active"));
+
+      // Add 'active' to the clicked li
+      this.classList.add("active");
+    });
+  });
+});
+
+const lis = document.querySelectorAll(".dashboard-menu ul li");
+
+lis.backgroundColor = "red";

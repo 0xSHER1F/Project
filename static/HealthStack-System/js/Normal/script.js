@@ -245,11 +245,6 @@ Version      : 1.0
     if ($(".content").length > 0) {
       resizeInnerDiv();
     }
-    /*if($(window).width() <= 991){
-			mobileSidebar();
-		} else {
-			$('html').removeClass('menu-opened');
-		}*/
   });
 
   // Slick Slider
@@ -400,3 +395,5 @@ Version      : 1.0
   }
   $(window).scroll(animateElements);
 })(jQuery);
+
+
