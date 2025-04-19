@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <!-- doccure/doctor-dashboard.html  30 Nov 2019 04:12:03 GMT -->
   <head>
     <meta charset="utf-8" />
     <meta
@@ -38,12 +37,6 @@
       rel="stylesheet"
       href="{% static 'HealthStack-System/css/Normal/style.css' %}"
     />
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.min.js"></script>
-      <script src="assets/js/respond.min.js"></script>
-    <![endif]-->
   </head>
   <body>
   {% if user.is_authenticated %}
@@ -55,9 +48,6 @@
 
       <!-- Breadcrumb -->
       <div class="breadcrumb-bar">
-        <div class="container-fluid">
-          <div class="row align-items-center">
-            <div class="col-md-12 col-12">
               <nav aria-label="breadcrumb" class="page-breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">
@@ -71,10 +61,8 @@
                   </li>
                 </ol>
               </nav>
-              <h2 class="breadcrumb-title">Doctor Dashboard</h2>{% include 'message.html' %}
-            </div>
-          </div>
-        </div>
+              
+          
       </div>
       <!-- /Breadcrumb -->
 
@@ -144,7 +132,7 @@
                               </div>
                             </div>
                             <div class="dash-widget-info">
-                              <h6>Total Appoinments</h6>
+                              <h6>Total Appointments</h6>
                               <h3>{{total_appointments_count.count}}</h3>
                               <p class="text-muted">{{current_date}}</p>
                             </div>
@@ -158,18 +146,11 @@
 
               <div class="row">
                 <div class="col-md-12">
-                  <h4 class="mb-4">Patient Appoinment</h4>
+                  <h4 class="mb-4">Patient Appointment</h4>
                   <div class="appointment-tab">
                     <!-- Appointment Tab -->
                     <ul class="nav nav-tabs nav-tabs-solid nav-tabs-rounded">
-                      {% comment %} <li class="nav-item">
-                        <a
-                          class="nav-link active"
-                          href="#upcoming-appointments"
-                          data-toggle="tab"
-                          >Upcoming</a
-                        >
-                      </li> {% endcomment %}
+
                       <li class="nav-item">
                         <a
                           class="nav-link active"
@@ -180,105 +161,6 @@
                       </li>
                     </ul>
                     <!-- /Appointment Tab -->
-
-                    {% comment %} <div class="tab-content">
-                      <!-- Upcoming Appointment Tab -->
-                      <div
-                        class="tab-pane show active"
-                        id="upcoming-appointments"
-                      >
-                        <div class="card card-table mb-0">
-                          <div class="card-body">
-                            <div class="table-responsive">
-                              <table
-                                class="table table-hover table-center mb-0"
-                              >
-                                <thead>
-                                  <tr>
-                                    <th>Patient Name</th>
-                                    <th>Appt Date</th>
-                                    <th>Purpose</th>
-                                    <th>Contact</th>
-                                    <th>Payment Status</th>
-                                    <th>Appoinment Status</th>
-                                    <th></th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-
-                                  {% for appointment in appointments %}
-                                  <tr>
-                                    <td>
-                                      <h2 class="table-avatar">
-                                        <a
-                                          href="patient-profile.html"
-                                          class="avatar avatar-sm mr-2"
-                                          ><img
-                                            class="avatar-img rounded-circle"
-                                            src="{{appointment.patient.featured_image.url}}"
-                                            alt="User Image"
-                                        /></a>
-                                        <a href="patient-profile.html">{{appointment.patient.name}}<span>#PT{{appointment.serial_number}}</span></a>
-                                      </h2>
-                                    </td>
-                                    <td>
-                                      {{appointment.date}}
-                                      <span class="d-block text-info"
-                                        >{{appointment.time}}</span
-                                      >
-                                    </td>
-                                    <td>{{ appointment.appointment_type }}</td>
-                                    <td>
-                                      {{appointment.patient.email}}
-                                      <span class="d-block text-info"
-                                        >Phone: {{appointment.patient.phone_number}}</span
-                                      >
-                                    </td>
-                                    <td>
-                                      {% if appointment.payment_status == 'pending' %}
-                                      <span class="badge badge-pill bg-warning-light">Pending</span>
-                                      {% endif %}
-                                      {% if appointment.payment_status == 'VALID' %}
-                                      <span class="badge badge-pill bg-success-light">Paid</span>
-                                      {% endif %}
-                                    </td>
-                                    <td>
-                                      {% if appointment.appointment_status == 'pending' %}
-                                      <span class="badge badge-pill bg-warning-light">Pending</span>
-                                      {% endif %}
-                                      {% if appointment.appointment_status == 'confirmed' %}
-                                      <span class="badge badge-pill bg-success-light">Confirmed</span>
-                                      {% endif %}
-                                      {% if appointment.appointment_status == 'cancelled' %}
-                                      <span class="badge badge-pill bg-danger-light">Cancelled</span>
-                                      {% endif %}
-                                    </td>
-                                    <td class="text-right">
-                                      <div class="table-action">
-                                        <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
-                                          <i class="far fa-eye"></i> View
-                                        </a>
-
-                                        <a href="{% url 'accept-appointment' pk=appointment.id %}" onclick="return confirm('Accept appointment?');" class="btn btn-sm bg-success-light">
-                                          <i class="fas fa-check"></i> Accept
-                                        </a>
-                                        <a href="{% url 'reject-appointment' pk=appointment.id %}" onclick="return confirm('Reject Appointment?');" class="btn btn-sm bg-danger-light">
-                                          <i class="fas fa-times"></i> Cancel
-                                        </a>
-                                      </div>
-                                    </td>
-                    
-                                  </tr>
-                                  {% endfor %} 
-
-                               
-                                </tbody>
-                              </table>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- /Upcoming Appointment Tab --> {% endcomment %}
 
                       <!-- Today Appointment Tab -->
                       <div class="tab-pane" id="today-appointments">
@@ -291,7 +173,7 @@
                                 <thead>
                                   <tr>
                                     <th>Patient Name</th>
-                                    <th>Appt Date</th>
+                                    <th>Appointment Date</th>
                                     <th>Purpose</th>
                                     <th>Contact</th>
                                     <th>Status</th>
@@ -328,6 +210,9 @@
                                       {% endif %}
                                       {% if today.appointment_status == 'confirmed' %}
                                       <span class="badge badge-pill bg-success-light">Confirmed</span>
+                                      {% endif %}
+                                      {% if today.appointment_status == 'cancelled' %}
+                                      <span class="badge badge-pill bg-danger-light">Cancelled</span>
                                       {% endif %}
                                     </td>
                                   
