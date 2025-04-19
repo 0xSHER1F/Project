@@ -54,9 +54,8 @@
 
       <!-- Breadcrumb -->
       <div class="breadcrumb-bar">
-        <div class="container-fluid">
-          <div class="row align-items-center"> 
-            <div class="col-md-12 col-12">
+        
+          
               <nav aria-label="breadcrumb" class="page-breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">
@@ -68,10 +67,10 @@
                 </ol>
               </nav>
               {% include 'message.html' %}
-            </div>
+            
 
-          </div>
-        </div>
+          
+        
       </div>
       <!-- /Breadcrumb -->
       
@@ -209,7 +208,7 @@
                                     <div class="table-action">
                                       <a
                                         href="{% url 'ssl-payment-request' pk=appointment.patient.patient_id id=appointment.id %}"
-                                        class="btn btn-sm bg-success-light"
+                                        class="btn btn-sm bg-success-light pay"
                                       >
                                         <i class="fas fa-dollar-sign"></i> Pay
                                         Now
@@ -445,31 +444,8 @@
       {% include 'footer.html' %}
       <!-- /Footer -->
     </div>
-
-    <!-- /Main Wrapper -->
-    <!-- <div class="modal fade" id="delete_modal" aria-hidden="true" role="dialog">
-      <div class="modal-dialog modal-dialog-centered text-center" role="document" >
-        <div class="modal-content">
-        	<div class="modal-header">
-            <h5 class="modal-title">Delete</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="form-content p-2">
-              <h4 class="modal-title">Delete</h4>
-              <p class="mb-4">Are you sure want to delete?</p>
-              <button type="button" class="btn btn-primary">Save </button>
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
     <!-- jQuery -->
-    <script src="{% static 'HealthStack-System/js/Normal/jquery.min.js' %}"></>
+    <script src="{% static 'HealthStack-System/js/Normal/jquery.min.js' %}"></script>
 
     <!-- Bootstrap Core JS -->
     <script src="{% static 'HealthStack-System/js/Normal/popper.min.js' %}"></script>
@@ -484,33 +460,16 @@
 
     <!-- Searchbar JS -->
     <script src="{% static 'HealthStack-System/js/Normal/sidebar.js' %}"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const lis = document.querySelectorAll(".dashboard-menu ul li");
 
-  lis.forEach((li) => {
-    li.addEventListener("click", function () {
-      // Remove 'active' from all li elements
-      lis.forEach((item) => item.classList.remove("active"));
-
-      this.classList.add("active");
-    });
-  });
-});
-
+    <script src="{% static 'HealthStack-System/js/Normal/active-link.js' %}"></script>
     {% if messages %}
-    <script>
-        {% for message in messages %}
-            $(document).ready(function () {
-                $('.toast').toast('show');
-            });
-        {% endfor %}
-    </script>
-  {% endif %}
-
-
-
+      <script>
+          {% for message in messages %}
+              $(document).ready(function () {
+                  $('.toast').toast('show');
+              });
+          {% endfor %}
+      </script>
+    {% endif %}
   </body>
-
-  
 </html>

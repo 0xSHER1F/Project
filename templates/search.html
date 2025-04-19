@@ -1,14 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <!-- doccure/search.html  30 Nov 2019 04:12:16 GMT -->
   <head>
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=0"
     />
-    <title>HealthStack</title>
+    <title>MediCare</title>
 
     <!-- Favicons -->
     <link
@@ -57,17 +56,10 @@
       href="{% static 'HealthStack-System/css/Normal/style.css' %}"
     />
 
-    <!-- <link rel="stylesheet"href="{% static 'HealthStack-System/css/Normal/search2.css' %}"> -->
-    <link
+    {% comment %} <link
       rel="stylesheet"
       href="{% static 'HealthStack-System/css/Normal/search3.css' %}"
-    />
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.min.js"></script>
-      <script src="assets/js/respond.min.js"></script>
-    <![endif]-->
+    /> {% endcomment %}
   </head>
   <body>
     <!-- Main Wrapper -->
@@ -78,49 +70,41 @@
 
       <!-- Breadcrumb -->
       <div class="breadcrumb-bar">
-        <div class="container-fluid">
-          <div class="row align-items-center">
-            <div class="col-md-6 col-6">
-              <nav aria-label="breadcrumb" class="page-breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">
-                    <a href="{% url 'patient-dashboard' %}">Home</a>
-                  </li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                    Search Doctor
-                  </li>
-                </ol>
-              </nav>
-              <h2 class="breadcrumb-title">Search Doctor</h2>
-            </div>
-
-            <div class="col-md-6 col-6">
-              <div class="top-nav-search">
-                <form action="{% url 'search' %}" method="GET">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Search doctor"
-                    name="search_query"
-                    value="{{search_query}}"
-                  />
-                  <button class="btn" type="submit">
-                    <i class="fa fa-search"></i>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+        <nav aria-label="breadcrumb" class="page-breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="{% url 'patient-dashboard' %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Search Doctor
+            </li>
+          </ol>
+        </nav>
       </div>
       <!-- /Breadcrumb -->
 
       <!-- Page Content -->
-      <div class="content">
+      <div class="doctor-search">
         <div class="container-fluid">
+          <div class="row search">
+            <div class="top-nav-search">
+              <form action="{% url 'search' %}" method="GET">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search doctor"
+                  name="search_query"
+                  value="{{search_query}}"
+                />
+                <button class="btn" type="submit">
+                  <i class="fa fa-search"></i>
+                </button>
+              </form>
+            </div>
+          </div>
           <div class="row">
             <!-- Profile Sidebar -->
-            <div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+            <div class="col-md-12 col-lg-4 col-xl-3">
               <div>{% include 'patient-sidebar.html' %}</div>
             </div>
             <!-- / Profile Sidebar -->
@@ -151,8 +135,8 @@
                           >
                         </h4>
                         <p class="doc-specialty">
-                          <b>Department: </b>{{
-                          doctor.department_name.hospital_department_name }}
+                          <b>Department: </b>
+                          {{doctor.department_name.hospital_department_name }}
                         </p>
                         <h5 class="doc-department">
                           <b>Specialization: </b>
