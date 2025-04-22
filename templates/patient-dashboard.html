@@ -16,13 +16,12 @@
       rel="icon"
     />
 
-    <!-- Bootstrap CSS -->
+    <!-- CSS Files -->
     <link
       rel="stylesheet"
       href="{% static 'HealthStack-System/css/bootstrap.min.css' %}"
     />
-
-    <!-- Fontawesome CSS -->
+    
     <link
       rel="stylesheet"
       href="{% static 'HealthStack-System/css/all.min.css' %}"
@@ -65,7 +64,7 @@
       <!-- /Breadcrumb -->
       
       <!-- Page Content -->
-      <div class="p-dashboard">
+      <div class="patient dashboard">
         <div class="container-fluid">
           <div class="row">
             <!-- Profile Sidebar -->
@@ -204,11 +203,11 @@
                                         Now
                                       </a>
                                       {% elif appointment.payment_status == 'confirmed' %}
-                                        <button class="btn btn-sm bg-secondary-light" disabled>
+                                        <button class="btn btn-sm btn-outline-info" disabled>
                                           <i class="fas fa-check-circle"></i> Paid
                                         </button>
                                         {% elif appointment.appointment_status == 'pending' %}
-                                        <button class="btn btn-sm bg-secondary-light" disabled>
+                                        <button class="btn btn-sm btn-outline-info" disabled>
                                           <i class="fas fa-clock"></i> Pending
                                         </button>
                                       {% endif %}
@@ -421,12 +420,13 @@
       {% include 'footer.html' %}
       <!-- /Footer -->
     </div>
+    <!-- Scripts -->
     <script src="{% static 'HealthStack-System/js/jquery.min.js' %}"></script>
     <script src="{% static 'HealthStack-System/js/popper.min.js' %}"></script>
     <script src="{% static 'HealthStack-System/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'HealthStack-System/js/all.min.js' %}"></script>
-
     <script src="{% static 'HealthStack-System/js/script.js' %}"></script>
+
     
   
 </script>

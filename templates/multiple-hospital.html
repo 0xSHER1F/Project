@@ -10,18 +10,22 @@
 	<!-- Favicons -->
 	<link type="image/x-icon" href="{% static 'HealthStack-System/images/Normal/favicon.png' %}" rel="icon">
 	
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="{% static 'HealthStack-System/css/Normal/bootstrap.min.css' %}">
-	
-	<!-- Fontawesome CSS -->
-	<link rel="stylesheet" href="{% static 'HealthStack-System/plugins/Normal/fontawesome/css/fontawesome.min.css' %}">
-	<link rel="stylesheet" href="{% static 'HealthStack-System/plugins/Normal/fontawesome/css/all.min.css' %}">
+	<!-- CSS Files -->
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/css/bootstrap.min.css' %}"
+    />
+    
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/css/all.min.css' %}"
+    />
 
-	<!-- Main CSS -->
-	<link rel="stylesheet" href="{% static 'HealthStack-System/css/Normal/style.css' %}">
-		
-	<link rel="stylesheet"href="{% static 'HealthStack-System/css/Normal/hospital.css' %}">
-	<link rel="stylesheet"href="{% static 'HealthStack-System/css/Normal/search2.css' %}">
+    <!-- Main CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/css/Normal/style.css' %}"
+    />
 
 	
 	</head>
@@ -58,7 +62,7 @@
 			<!-- /Breadcrumb -->
 			
 			<!-- Page Content -->
-			<div class="multiple-hospital">
+			<div class="patient multiple-hospital">
 				<div class="container-fluid">
 					<div class="row">
 						<div class="top-nav-search">
@@ -86,9 +90,9 @@
 						</div>
 						
 						<div class="col-md-12 col-lg-8 col-xl-9">
-							<section class="wrapper" style="height: 0px;">
-								<div class="container-fostrap" style="padding-top: 0px;">
-									<h1 class="card-title" style="text-align: center;font-size: 45px;">All Hospitals</h1>
+							<section class="wrapper">
+								<div class="container-fostrap">
+									<h1 class="card-title">All Hospitals</h1>
 										
 
 									<div class="content">
@@ -99,7 +103,7 @@
 												
 													<div class="card">
 														<a class="img-card" href="{% url 'hospital-profile' pk=hospital.hospital_id %}">
-														<img src="{{hospital.featured_image.url}}" />
+														<img src="{{hospital.featured_image.url}}" class="img-fluid"/>
 													  </a>
 														<div class="card-content">
 															<h4 class="card-title">
@@ -138,25 +142,13 @@
 		</div>
 		<!-- /Main Wrapper -->
 	  
-		<!-- jQuery -->
-		<script src="{% static 'HealthStack-System/js/Normal/jquery.min.js' %}"></script>
-		
-		<!-- Bootstrap Core JS -->
-		<script src="{% static 'HealthStack-System/js/Normal/popper.min.js' %}"></script>
-		<script src="{% static 'HealthStack-System/js/Normal/bootstrap.min.js' %}"></script>
-		
-		<!-- Sticky Sidebar JS -->
-        <script src="{% static 'HealthStack-System/plugins/Normal/theia-sticky-sidebar/ResizeSensor.js' %}"></script>
-        <script src="{% static 'HealthStack-System/plugins/Normal/theia-sticky-sidebar/theia-sticky-sidebar.js' %}"></script>
-		
-		<!-- Custom JS -->
-		<script src="{% static 'HealthStack-System/Outside_assets/js/script.js' %}"></script>
-
-		<!-- Searchbar JS -->
-		<script src="{% static 'HealthStack-System/js/Normal/sidebar.js' %}"></script>
-		<script src="{% static 'HealthStack-System/js/Normal/active-link.js' %}"></script>
+		<!-- Scripts -->
+    <script src="{% static 'HealthStack-System/js/jquery.min.js' %}"></script>
+    <script src="{% static 'HealthStack-System/js/popper.min.js' %}"></script>
+    <script src="{% static 'HealthStack-System/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'HealthStack-System/js/all.min.js' %}"></script>
+    <script src="{% static 'HealthStack-System/js/script.js' %}"></script>
 		
 	</body>
 
-<!-- doccure/change-password.html  30 Nov 2019 04:12:18 GMT -->
 </html>
