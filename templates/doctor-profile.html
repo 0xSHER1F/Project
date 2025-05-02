@@ -123,9 +123,9 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="#doc_certificate" data-bs-toggle="tab">Certificate</a>
                                         </li>
-                                        <li class="nav-item">
+                                        {% comment %} <li class="nav-item">
                                             <a class="nav-link" href="#doc_reviews" data-bs-toggle="tab">Reviews</a>
-                                        </li>
+                                        </li> {% endcomment %}
                                     </ul>
                                 </nav>
                                 
@@ -191,7 +191,7 @@
                                                 <div class="service-list">
                                                     <h4>Visiting Time</h4>
                                                     <ul class="clearfix">
-                                                        <li><i class="fa-solid fa-arrow-right"></i> {{ doctor.visiting_hour }}</li>
+                                                        <li><i class="fa-solid fa-clock"></i> {{ doctor.visiting_hour }}</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -211,7 +211,7 @@
                                     </div>
                                     
                                     <!-- Reviews Tab -->
-                                    <div role="tabpanel" id="doc_reviews" class="tab-pane fade">
+                                    {% comment %} <div role="tabpanel" id="doc_reviews" class="tab-pane fade">
                                         {% if user.is_authenticated and user.is_patient %}
                                             <!-- Review Form -->
                                             <div class="write-review">
@@ -272,7 +272,7 @@
                                                 </ul>
                                             </div>
                                         {% endif %}
-                                    </div>
+                                    </div> {% endcomment %}
                                 </div>
                             </div>
                         </div>
