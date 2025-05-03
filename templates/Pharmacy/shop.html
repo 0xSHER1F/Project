@@ -17,163 +17,159 @@
       href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
       rel="stylesheet"
     />
+    <!-- CSS Files -->
     <link
-      href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700"
       rel="stylesheet"
+      href="{% static 'HealthStack-System/css/bootstrap.min.css' %}"
     />
+
     <link
-      href="https://fonts.googleapis.com/css?family=Great+Vibes"
       rel="stylesheet"
+      href="{% static 'HealthStack-System/css/all.min.css' %}"
     />
+
+    <!-- Main CSS -->
     <link
       rel="stylesheet"
-      href="{% static 'HealthStack-System\pharmacy_assets\css\bootstrap.min.css' %}"
-    />
-    <link
-      rel="stylesheet"
-      href="{% static 'HealthStack-System/css/Normal/style.css' %}"
-    />
-    <link
-      rel="stylesheet"
-      href="{% static 'HealthStack-System\pharmacy_assets\css\main.css' %}"
-    />
-    <link
-      rel="stylesheet"
-      href="{% static 'HealthStack-System\pharmacy_assets\css\animate.min.css' %}"
+      href="{% static 'HealthStack-System/css/pharmacy/style.css' %}"
     />
   </head>
 
   <body>
     <div class="main-wrapper">
-      <div class="container-fluid">
-<nav
-      class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
-      id="ftco-navbar"
-    >
-      <a class="navbar-brand" href="#">
-        <img
-          src="{% static 'HealthStack-System/images/Normal/logo.png' %}"
-          class="img-fluid"
-          alt="Shop Logo"
-        />
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#ftco-nav"
-        aria-controls="ftco-nav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="oi oi-menu"></span> Menu
-      </button>
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a href="{% url 'patient-dashboard'%}" class="nav-link"
-              >Dashboard</a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'checkout' %}" class="nav-link">Checkout</a>
-          </li>
-          <li class="nav-item cart">
-            <a href="{% url 'cart' %}" class="nav-link">
-              <span class="icon icon-shopping_cart"></span>
-              <span
-                class="bag d-flex justify-content-center align-items-center"
-              >
-                <small>{{order.count_cart_items}}</small>
-              </span>
+      <nav
+          class="navbar navbar-expand-lg navbar-dark bg-dark"
+          id="ftco-navbar"
+        >
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <img
+                src="{% static 'HealthStack-System/images/Normal/logo.png' %}"
+                class="img-fluid"
+                alt="Shop Logo"
+              />
             </a>
-          </li>
-          <div class="col-md-6 col-6 text-right">
-            <div class="top-nav-search">
-              <form action="{% url 'pharmacy_shop' %}" method="GET">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Search medicine"
-                  name="search_query"
-                  value="{{search_query}}"
-                />
-              </form>
-            </div>
-          </div>
-        </ul>
-      </div>
-    </nav>
-
-    <section class="ftco-menu mb-5 pb-5">
-      <div class="container">
-        <div class="row d-md-flex">
-          <div class="col-lg-12 ftco-animate p-md-5">
-            <div class="row">
-              <div class="col-md-12 nav-link-wrap mb-5">
-                <div
-                  class="nav ftco-animate nav-pills justify-content-center"
-                  id="v-pills-tab"
-                  role="tablist"
-                  aria-orientation="vertical"
-                >
-                  <a
-                    class="nav-link active"
-                    id="v-pills-0-tab"
-                    data-toggle="pill"
-                    href="#v-pills-0"
-                    role="tab"
-                    aria-controls="v-pills-0"
-                    aria-selected="true"
-                    >All Medicine</a
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#ftco-nav"
+              aria-controls="ftco-nav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a href="{% url 'patient-dashboard'%}" class="nav-link"
+                    >Dashboard</a
                   >
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'checkout' %}" class="nav-link">Checkout</a>
+                </li>
+                <li class="nav-item cart">
+                  <a href="{% url 'cart' %}" class="nav-link position-relative">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span
+                      class="position-absolute badge rounded-pill bg-primary"
+                    >
+                      {{order.count_cart_items}}
+                    </span>
+                  </a>
+                </li>
+              </ul>
+              <div class="d-flex">
+                <div class="search-box">
+                  <form action="{% url 'pharmacy_shop' %}" method="GET">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Search medicine"
+                      name="search_query"
+                      value="{{search_query}}"
+                    />
+                  </form>
                 </div>
               </div>
-              <div class="col-md-12 d-flex align-items-center">
-                <div class="tab-content ftco-animate" id="v-pills-tabContent">
+            </div>
+          </div>
+        </nav>
+      <div class="container-fluid">
+        <!-- Medicine Section -->
+        <section class="medicine-section py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 p-md-5">
+                <!-- Medicine Categories Navigation -->
+                <div class="row mb-4">
+                  <div class="col-12">
+                    <ul
+                      class="nav nav-pills justify-content-center"
+                      id="v-pills-tab"
+                      role="tablist"
+                    >
+                      <li class="nav-item" role="presentation">
+                        <button
+                          class="nav-link active"
+                          id="v-pills-0-tab"
+                          data-bs-toggle="pill"
+                          data-bs-target="#v-pills-0"
+                          type="button"
+                          role="tab"
+                          aria-controls="v-pills-0"
+                          aria-selected="true"
+                        >
+                          All Medicine
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Medicine Display Section -->
+                <div class="tab-content" id="v-pills-tabContent">
                   <div
                     class="tab-pane fade show active"
                     id="v-pills-0"
                     role="tabpanel"
-                    aria-labelledby="v-pills-1-tab"
+                    aria-labelledby="v-pills-0-tab"
                   >
-                    <div class="row">
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                       {% for medicine in medicines %}
-                      <div
-                        class="col-md-4 text-center"
-                        style="
-                          display: flex;
-                          justify-content: space-around;
-                          align-items: center;
-                        "
-                      >
-                        <div class="menu-wrap">
-                          <a href="#" class="menu-img img">
+                      <div class="col">
+                        <div class="card h-100 text-center">
+                          <a
+                            href="{% url 'product-single' pk=medicine.serial_number %}"
+                            class="text-decoration-none"
+                          >
                             <img
                               src="{{ medicine.featured_image.url }}"
-                              style="height: 300px; width: 300px"
-                              class="img-fluid"
-                              alt="User Image"
+                              class="card-img-top img-fluid"
+                              alt="Medicine Image"
+                              style="height: 300px; object-fit: cover"
                             />
                           </a>
-                          <div class="text" style="text-align: center">
-                            <h3>
+                          <div class="card-body">
+                            <h5 class="card-title">
                               <a
                                 href="{% url 'product-single' pk=medicine.serial_number %}"
-                                >{{medicine.name}}</a
+                                class="text-decoration-none"
                               >
-                            </h3>
-
-                            <p class="price">
-                              <span>{{medicine.price}} BDT</span>
+                                {{medicine.name}}
+                              </a>
+                            </h5>
+                            <p class="card-text fw-bold">
+                              {{medicine.price}} EGP
                             </p>
-                            <p>
-                              <a
-                                href="{% url 'add-to-cart' pk=medicine.serial_number %}"
-                                class="btn btn-primary btn-outline-primary"
-                                >Add to cart</a
-                              >
-                            </p>
+                            <a
+                              href="{% url 'add-to-cart' pk=medicine.serial_number %}"
+                              class="btn btn-outline-primary"
+                            >
+                              Add to cart
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -184,43 +180,16 @@
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
-    </section>
-
-    {% include 'footer.html' %}
-      </div>
+      {% include 'footer.html' %}
     </div>
-    
-    <!-- GSAP for animation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script>
-      // Navbar scroll effect
-      window.addEventListener("scroll", function () {
-        const nav = document.querySelector(".navbar");
-        if (window.scrollY > 50) {
-          nav.classList.add("navbar-scrolled");
-        } else {
-          nav.classList.remove("navbar-scrolled");
-        }
-      });
 
-      // GSAP entrance animation
-      document.addEventListener("DOMContentLoaded", () => {
-        gsap.from(".menu-wrap", {
-          opacity: 0,
-          y: 50,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power2.out",
-        });
-
-        gsap.from(".navbar", {
-          y: -100,
-          duration: 1,
-          ease: "bounce.out",
-        });
-      });
-    </script>
+    <!-- Scripts -->
+    <script src="{% static 'HealthStack-System/js/jquery.min.js' %}"></script>
+    <script src="{% static 'HealthStack-System/js/popper.min.js' %}"></script>
+    <script src="{% static 'HealthStack-System/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'HealthStack-System/js/all.min.js' %}"></script>
+    <script src="{% static 'HealthStack-System/js/script.js' %}"></script>
   </body>
 </html>

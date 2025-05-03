@@ -1,6 +1,5 @@
 /*============================
  [Table of CSS]
-
  1- General Rules
  2- Components
  3- Header
@@ -2642,6 +2641,143 @@ ul {
 
   .hospital #doc_emergency table tr td:last-child {
     font-size: 1.1rem;
+  }
+}
+/* *********Hospital Departments******* */
+
+.hospital.departments h1.card-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 2rem;
+  padding-bottom: 0.7rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hospital.departments h1.card-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  height: 4px;
+  background-color: #4361ee;
+  border-radius: 2px;
+}
+
+/* Departments container - converting to grid */
+.hospital.departments .departments-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 2rem;
+}
+
+/* Individual department */
+.hospital.departments .department {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.hospital.departments .department:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Department image */
+.hospital.departments .department img.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.hospital.departments .department:hover img.card-img-top {
+  transform: scale(1.05);
+}
+
+/* Department name */
+.hospital.departments h3.department-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+  padding: 1.25rem;
+  text-align: center;
+  background-color: #b4c7db;
+}
+
+/* Read more section */
+.hospital.departments .read-more {
+  padding: 0.5rem 1.25rem 1.25rem;
+  margin-top: auto;
+}
+
+/* Explore button */
+.hospital.departments .read-more .btn.btn-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #b4c7db;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.hospital.departments .read-more .btn.btn-link:hover {
+  background-color: #3a56d4;
+}
+
+.hospital.departments .read-more .btn.btn-link::after {
+  content: "\f061";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-left: 8px;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .hospital.departments .departments-container {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .hospital.departments h1.card-title {
+    font-size: 1.8rem;
+  }
+
+  .hospital.departments .departments-container {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .hospital.departments .departments-container {
+    grid-template-columns: 1fr;
+  }
+
+  .hospital.departments h1.card-title {
+    margin-bottom: 1.5rem;
+  }
+
+  .hospital.departments .department {
+    max-width: 100%;
   }
 }
 
