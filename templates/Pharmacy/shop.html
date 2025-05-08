@@ -37,151 +37,197 @@
 
   <body>
     <div class="main-wrapper">
-      <nav
-          class="navbar navbar-expand-lg navbar-dark bg-dark"
-          id="ftco-navbar"
-        >
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-              <img
-                src="{% static 'HealthStack-System/images/Normal/logo.png' %}"
-                class="img-fluid"
-                alt="Shop Logo"
-              />
-            </a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#ftco-nav"
-              aria-controls="ftco-nav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="ftco-nav">
-              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a href="{% url 'patient-dashboard'%}" class="nav-link"
-                    >Dashboard</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a href="{% url 'checkout' %}" class="nav-link">Checkout</a>
-                </li>
-                <li class="nav-item cart">
-                  <a href="{% url 'cart' %}" class="nav-link position-relative">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span
-                      class="position-absolute badge rounded-pill bg-primary"
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <!-- Logo -->
+          <a class="navbar-brand" href="#">
+            <img
+              src="{% static 'HealthStack-System/images/Normal/logo.png' %}"
+              alt="MediCare Pharmacy Logo"
+            />
+          </a>
+
+          <!-- Mobile Toggle Button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarContent"
+            aria-controls="navbarContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <!-- Navigation Content -->
+          <div class="collapse navbar-collapse" id="navbarContent">
+            <!-- Main Navigation Links -->
+            <ul class="navbar-nav ms-auto mb-lg-0">
+              <li class="nav-item">
+                <a href="{% url 'patient-dashboard'%}" class="nav-link">
+                  <span>Dashboard</span>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{% url 'checkout' %}" class="nav-link">
+                  <span>Checkout</span>
+                </a>
+              </li>
+              <li class="nav-item cart d-none d-lg-block">
+                <a href="{% url 'cart' %}" class="nav-link">
+                  <div class="cart-icon-wrapper">
+                    <i class="fas fa-cart-shopping"></i>
+                    <span class="badge badge-cart"
+                      >{{order.count_cart_items}}</span
                     >
-                      {{order.count_cart_items}}
-                    </span>
-                  </a>
-                </li>
-              </ul>
-              <div class="d-flex">
-                <div class="search-box">
-                  <form action="{% url 'pharmacy_shop' %}" method="GET">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Search medicine"
-                      name="search_query"
-                      value="{{search_query}}"
-                    />
-                  </form>
-                </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+
+            <!-- Desktop Search -->
+            <div class="search-box ms-lg-4 d-none d-lg-block">
+              <form action="{% url 'pharmacy_shop' %}" method="GET">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search medicine..."
+                  name="search_query"
+                  value="{{search_query}}"
+                />
+              </form>
+            </div>
+
+            <!-- Mobile Search and Cart -->
+            <div class="mobile-bottom-wrapper d-flex d-lg-none">
+              <div class="search-box">
+                <form action="{% url 'pharmacy_shop' %}" method="GET">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search medicine..."
+                    name="search_query"
+                    value="{{search_query}}"
+                  />
+                </form>
+              </div>
+              <div class="nav-item cart">
+                <a href="{% url 'cart' %}" class="nav-link">
+                  <div class="cart-icon-wrapper">
+                    <i class="fas fa-cart-shopping"></i>
+                    <span class="badge badge-cart"
+                      >{{order.count_cart_items}}</span
+                    >
+                  </div>
+                </a>
               </div>
             </div>
           </div>
-        </nav>
-      <div class="container-fluid">
-        <!-- Medicine Section -->
-        <section class="medicine-section py-5">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12 p-md-5">
-                <!-- Medicine Categories Navigation -->
-                <div class="row mb-4">
-                  <div class="col-12">
-                    <ul
-                      class="nav nav-pills justify-content-center"
-                      id="v-pills-tab"
-                      role="tablist"
-                    >
-                      <li class="nav-item" role="presentation">
-                        <button
-                          class="nav-link active"
-                          id="v-pills-0-tab"
-                          data-bs-toggle="pill"
-                          data-bs-target="#v-pills-0"
-                          type="button"
-                          role="tab"
-                          aria-controls="v-pills-0"
-                          aria-selected="true"
-                        >
-                          All Medicine
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+        </div>
+      </nav>
+      <section class="medicine-section">
+        <div class="section-container">
+          <!-- Section Header -->
+          <div class="section-header">
+            <h2 class="section-title">Browse Our Products</h2>
+            <p class="section-subtitle">
+              High-quality medications and healthcare products for your
+              well-being
+            </p>
+          </div>
 
-                <!-- Medicine Display Section -->
-                <div class="tab-content" id="v-pills-tabContent">
-                  <div
-                    class="tab-pane fade show active"
-                    id="v-pills-0"
-                    role="tabpanel"
-                    aria-labelledby="v-pills-0-tab"
+          <!-- Medicine Categories Navigation -->
+          <div class="category-nav">
+            <button
+              class="category-pill active"
+              id="v-pills-0-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#v-pills-0"
+              type="button"
+              role="tab"
+              aria-controls="v-pills-0"
+              aria-selected="true"
+            >
+              All Products
+            </button>
+            <!-- Add more category pills as needed -->
+          </div>
+
+          <!-- Medicine Display Section -->
+          <div class="tab-content" id="v-pills-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="v-pills-0"
+              role="tabpanel"
+              aria-labelledby="v-pills-0-tab"
+            >
+              <div class="product-grid">
+                {% for medicine in medicines %}
+                <div class="product-card">
+                  <!-- Quick View Button -->
+                  <a
+                    href="{% url 'product-single' pk=medicine.serial_number %}"
+                    class="quick-view"
+                    title="Quick View"
                   >
-                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                      {% for medicine in medicines %}
-                      <div class="col">
-                        <div class="card h-100 text-center">
-                          <a
-                            href="{% url 'product-single' pk=medicine.serial_number %}"
-                            class="text-decoration-none"
-                          >
-                            <img
-                              src="{{ medicine.featured_image.url }}"
-                              class="card-img-top img-fluid"
-                              alt="Medicine Image"
-                              style="height: 300px; object-fit: cover"
-                            />
-                          </a>
-                          <div class="card-body">
-                            <h5 class="card-title">
-                              <a
-                                href="{% url 'product-single' pk=medicine.serial_number %}"
-                                class="text-decoration-none"
-                              >
-                                {{medicine.name}}
-                              </a>
-                            </h5>
-                            <p class="card-text fw-bold">
-                              {{medicine.price}} EGP
-                            </p>
-                            <a
-                              href="{% url 'add-to-cart' pk=medicine.serial_number %}"
-                              class="btn btn-outline-primary"
-                            >
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      {% endfor %}
+                    <i class="fas fa-eye"></i>
+                  </a>
+
+                  <!-- Product Image -->
+                  <a
+                    href="{% url 'product-single' pk=medicine.serial_number %}"
+                    class="product-image-container"
+                  >
+                    <img
+                      src="{{ medicine.featured_image.url }}"
+                      class="product-image"
+                      alt="{{medicine.name}}"
+                    />
+                    <div class="product-overlay"></div>
+                  </a>
+
+                  <!-- Product Content -->
+                  <div class="product-content">
+                    <h3 class="product-title">
+                      <a
+                        href="{% url 'product-single' pk=medicine.serial_number %}"
+                      >
+                        {{medicine.name}}
+                      </a>
+                    </h3>
+                    <div class="product-price">
+                      {{medicine.price}} <span>EGP</span>
+                    </div>
+                    <div class="product-actions">
+                      <a
+                        href="{% url 'add-to-cart' pk=medicine.serial_number %}"
+                        class="btn-add-to-cart"
+                      >
+                        Add to cart
+                        <i class="fas fa-cart-shopping"></i>
+                      </a>
                     </div>
                   </div>
                 </div>
+                {% empty %}
+                <!-- Empty State -->
+                <div class="empty-state">
+                  <div class="empty-icon">
+                    <i class="fas fa-prescription-bottle"></i>
+                  </div>
+                  <h3 class="empty-title">No products found</h3>
+                  <p class="empty-text">
+                    We couldn't find any products matching your search criteria.
+                  </p>
+                </div>
+                {% endfor %}
               </div>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
       {% include 'footer.html' %}
     </div>
 

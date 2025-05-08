@@ -101,12 +101,11 @@ document.querySelectorAll(".tab-trigger").forEach((trigger) => {
 
 const hospitalCarousel = document.querySelector("#hospitalCarousel");
 const carousel = new bootstrap.Carousel(hospitalCarousel, {
-  interval: 2000, 
+  interval: 2000,
   ride: "carousel",
 });
 
-
-// Show Password 
+// Show Password
 function showPass() {
   var x = document.getElementById("myInput");
   if (x.type === "password") {
@@ -115,4 +114,3 @@ function showPass() {
     x.type = "password";
   }
 }
-
