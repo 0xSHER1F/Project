@@ -1521,18 +1521,6 @@ ul {
   background-color: transparent;
   color: #20c0f3;
 }
-.patient .load-more .btn {
-  background-color: #20c0f3;
-  border-color: #20c0f3;
-  border-width: 2px;
-  min-width: 250px;
-  border-radius: 10px;
-  font-weight: 500;
-}
-.patient .load-more .btn:hover {
-  background-color: transparent;
-  color: #20c0f3;
-}
 
 .multiple-hospital .wrapper {
   border: 2px solid #c9d6e3;
@@ -4622,94 +4610,450 @@ table.table td h2 span {
 }
 
 /*-----------------
-	21. Invoice View
+	21. Prescription View
 -----------------------*/
 
-.invoice-content {
-  background-color: #fff;
-  border: 1px solid #f0f0f0;
-  border-radius: 4px;
-  margin-bottom: 30px;
-  padding: 30px;
-}
-.invoice-item .invoice-logo {
-  margin-bottom: 30px;
-}
-.invoice-item .invoice-logo img {
-  width: auto;
-  max-height: 52px;
-}
-.invoice-item .invoice-text h2 {
-  color: #272b41;
-  font-size: 36px;
-  font-weight: 600;
-}
-.invoice-item .invoice-details {
-  text-align: right;
-  color: #757575;
-  font-weight: 500;
-}
-.invoice-item .invoice-details strong {
-  color: #272b41;
-}
-.invoice-item .invoice-details-two {
-  text-align: left;
-}
-.invoice-item .invoice-text {
-  padding-top: 42px;
-  padding-bottom: 36px;
-}
-.invoice-item .invoice-text h2 {
-  font-weight: 400;
-}
-.invoice-info {
-  margin-bottom: 30px;
-}
-.invoice-info p {
-  margin-bottom: 0;
-}
-.invoice-info.invoice-info2 {
-  text-align: right;
-}
-.invoice-item .customer-text {
-  font-size: 18px;
-  color: #272b41;
-  font-weight: 600;
-  margin-bottom: 8px;
-  display: block;
-}
-.invoice-table tr th,
-.invoice-table tr td,
-.invoice-table-two tr th,
-.invoice-table-two tr td {
-  color: #272b41;
-  font-weight: 600;
-  padding: 10px 20px;
-  line-height: inherit;
-}
-.invoice-table tr td,
-.invoice-table-two tr td {
-  color: #757575;
-  font-weight: 500;
-}
-.invoice-table-two {
-  margin-bottom: 0;
-}
-.invoice-table-two tr th,
-.invoice-table-two tr td {
-  border-top: 0;
-}
-.invoice-table-two tr td {
-  text-align: right;
-}
-.invoice-info h5 {
-  font-size: 16px;
-  font-weight: 500;
-}
-.other-info {
-  margin-top: 10px;
+.patient.prescription-view .invoice-content {
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
+.patient.prescription-view .invoice-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.5rem;
+  background: linear-gradient(90deg, #5b5fef, #60a5fa);
+}
+
+.patient.prescription-view .invoice-item {
+  position: relative;
+}
+
+.patient.prescription-view .invoice-details {
+  line-height: 2;
+  color: #2d3748;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.patient.prescription-view .invoice-details strong {
+  color: #5b5fef;
+  font-weight: 600;
+}
+
+.patient.prescription-view .invoice-info {
+  background: #f5f7fe;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  height: 100%;
+  border-left: 4px solid #60a5fa;
+  border-right: 4px solid #60a5fa;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.patient.prescription-view .invoice-info:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.patient.prescription-view .customer-text {
+  font-size: 1.1rem;
+  color: #5b5fef;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.patient.prescription-view .customer-text::before {
+  content: "\f007";
+  font-family: "Font Awesome 5 Free";
+  margin-right: 0.5rem;
+  background: rgba(91, 95, 239, 0.1);
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.patient.prescription-view .invoice-info2 .customer-text::before {
+  content: "\f406";
+  background: rgba(96, 165, 250, 0.1);
+}
+
+.patient.prescription-view .invoice-details-two b,
+.patient.prescription-view .invoice-details b {
+  color: #2d3748;
+  min-width: 90px;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+/* Table section styling */
+.patient.prescription-view .invoice-table-wrap h2 {
+  color: #5b5fef;
+  font-size: 1.6rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  width: 100%;
+}
+.patient.prescription-view .invoice-table-wrap h2:last-child {
+  color: #fff;
+}
+
+.patient.prescription-view .invoice-table-wrap h2::before {
+  font-family: "Font Awesome 5 Free";
+  margin-right: 0.75rem;
+  font-weight: 900;
+}
+
+.patient.prescription-view .invoice-table-wrap:nth-of-type(5) h2::before {
+  content: "\f484";
+}
+
+.patient.prescription-view .invoice-table-wrap:nth-of-type(4) h2::before {
+  content: "\f0f1";
+}
+
+.patient.prescription-view .invoice-table-wrap:nth-of-type(3) h2::before {
+  content: "\f05a";
+}
+
+.patient.prescription-view hr {
+  background: #e2e8f0;
+  opacity: 0.5;
+  margin: 1.5rem 0;
+}
+
+/* Table styling */
+.patient.prescription-view .table-responsive {
+  border-radius: 1rem;
+  overflow: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.patient.prescription-view .invoice-table {
+  margin-bottom: 0;
+}
+
+.patient.prescription-view .invoice-table thead th {
+  background: linear-gradient(90deg, #5b5fef, rgba(91, 95, 239, 0.8));
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 1rem 1.5rem;
+  border: none;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.patient.prescription-view .invoice-table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.patient.prescription-view .invoice-table tbody tr:nth-child(odd) {
+  background-color: #f5f7fe;
+}
+
+.patient.prescription-view .invoice-table tbody tr:hover {
+  background-color: rgba(91, 95, 239, 0.05);
+}
+
+.patient.prescription-view .invoice-table td {
+  padding: 1rem 1.5rem;
+  vertical-align: middle;
+  border-color: #e2e8f0;
+  color: #2d3748;
+  font-size: 0.9rem;
+}
+
+/* Advice section styling */
+.patient.prescription-view .invoice-table-wrap:nth-of-type(3) .table thead th {
+  background: linear-gradient(90deg, #6fcf97, #4ac29a);
+}
+
+.patient.prescription-view
+  .invoice-table-wrap:nth-of-type(3)
+  .table
+  tbody
+  tr
+  td {
+  padding: 1.5rem;
+  font-size: 1rem;
+  background: #f5f7fe;
+  line-height: 1.8;
+}
+
+/* Button styling */
+.patient.prescription-view .btn {
+  border-radius: 2rem;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.patient.prescription-view .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.patient.prescription-view .btn:hover::before {
+  width: 100%;
+}
+
+.patient.prescription-view .bg-primary {
+  background: linear-gradient(45deg, #5b5fef, #6a6dff) !important;
+  border: none;
+  box-shadow: 0 4px 15px rgba(91, 95, 239, 0.35);
+}
+
+.patient.prescription-view .bg-primary:hover {
+  background: linear-gradient(45deg, #4a4ede, #5b5fef) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(91, 95, 239, 0.5);
+}
+
+.patient.prescription-view .bg-info {
+  background: linear-gradient(45deg, #60a5fa, #3b82f6) !important;
+  border: none;
+  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.35);
+}
+
+.patient.prescription-view .bg-info:hover {
+  background: linear-gradient(45deg, #3b82f6, #2563eb) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(96, 165, 250, 0.5);
+}
+
+.patient.prescription-view .btn a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.patient.prescription-view .btn a::before {
+  font-family: "Font Awesome 5 Free";
+  margin-right: 0.5rem;
+  font-weight: 900;
+}
+
+.patient.prescription-view .bg-primary a::before {
+  content: "\f07a";
+}
+
+.patient.prescription-view .bg-info a::before {
+  content: "\f019";
+}
+
+@media (max-width: 992px) {
+  .patient.prescription-view .invoice-table thead th,
+  .patient.prescription-view .invoice-table td {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .patient.prescription-view .invoice-details {
+    margin-bottom: 1rem;
+  }
+  .patient.prescription-view .invoice-content .col-md-6 {
+    margin-bottom: 1.5rem;
+  }
+
+  .patient.prescription-view .btn {
+    display: block;
+    width: 100%;
+  }
+  .patient.prescription-view .invoice-table-wrap h2 {
+    font-size: 1rem;
+  }
+}
+
+/*-----------------
+	21. View Report
+-----------------------*/
+.patient.view-report .invoice-content {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.patient.view-report .invoice-item {
+  margin-bottom: 30px;
+}
+
+.patient.view-report .invoice-details {
+  color: #6c757d;
+  line-height: 1.8;
+}
+
+.patient.view-report .customer-text {
+  color: #344767;
+  font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.patient.view-report .customer-text:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #2c7be5;
+}
+
+.patient.view-report .table-responsive {
+  overflow-x: auto;
+}
+
+.patient.view-report .table {
+  margin-bottom: 0;
+}
+
+.patient.view-report .table thead th {
+  background-color: #f2f6fc;
+  color: #344767;
+  font-weight: 600;
+  border-bottom: none;
+  padding: 12px 15px;
+}
+
+.patient.view-report .table tbody th {
+  font-weight: 500;
+  padding: 12px 15px;
+}
+
+.patient.view-report .other-info {
+  background-color: #f2f6fc;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.patient.view-report .other-info h4 {
+  color: #344767;
+  margin-bottom: 15px;
+}
+
+.patient.view-report .report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.patient.view-report .report-header h2 {
+  color: #344767;
+  margin: 0;
+  font-weight: 600;
+}
+
+.patient.view-report .report-id-badge {
+  background-color: #2c7be5;
+  color: white;
+  border-radius: 30px;
+  padding: 5px 15px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.patient.view-report .report-date {
+  color: #6c757d;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.patient.view-report .info-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  height: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  border-left: 4px solid #2c7be5;
+  border-right: 4px solid #2c7be5;
+}
+
+.patient.view-report .btn-download {
+  background-color: #2c7be5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.patient.view-report .btn-download:hover {
+  background-color: #1c65cb;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(44, 123, 229, 0.3);
+}
+
+.patient.view-report .btn-download a {
+  color: white;
+  text-decoration: none;
+}
+
+.patient.view-report .section-title {
+  color: #344767;
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.patient.view-report .section-title::after {
+  width: 100%;
+}
+
+.patient.view-report .specimen-badge {
+  background-color: #e1f0ff;
+  color: #2c7be5;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 5px 10px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.patient.view-report .label-info {
+  font-weight: 600;
+  color: #344767;
+  margin-right: 5px;
+}
 /*-----------------
 	22. Schedule Timings
 -----------------------*/
@@ -5549,12 +5893,6 @@ table.table td h2 span {
     font-size: 14px;
     padding: 10px 30px;
   }
-  .invoice-info.invoice-info2 {
-    text-align: left;
-  }
-  .invoice-item .invoice-details {
-    text-align: left;
-  }
 
   .slick-next {
     right: -10px;
@@ -5713,9 +6051,6 @@ table.table td h2 span {
   .booking-total ul li .total-cost {
     font-size: 14px;
   }
-  .invoice-item .customer-text {
-    font-size: 16px;
-  }
   .call-wrapper {
     height: calc(100vh - 115px);
   }
@@ -5853,9 +6188,6 @@ table.table td h2 span {
   .edit-link {
     font-size: 14px;
     margin-top: 2px;
-  }
-  .invoice-content {
-    padding: 1.25rem;
   }
   .change-avatar .profile-img img {
     height: 80px;
