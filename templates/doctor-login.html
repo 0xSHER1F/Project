@@ -124,7 +124,7 @@
               <div class="text-center dont-have">
                 <div class="regist">
                   Don't have an account?
-                  <a href="{% url 'patient-register' %}">Register</a>
+                  <a href="{% url 'doctor:doctor-register' %}">Register</a>
                 </div>
                 <div class="log-admin">
                   Want to login as
@@ -149,25 +149,8 @@
     <script src="{% static 'HealthStack-System/js/script.js' %}"></script>
 
 
-    <!-- alert js -->
-    <script>
-      var x = document.getElementById("CredentialCheck");
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      }
-      $("#CredentialCheck").delay(4000).fadeOut("slow");
-    </script>
+   
 
-
-    {% if messages %}
-    <script>
-      {% for message in messages %}
-          $(document).ready(function () {
-              $('.toast').toast('show');
-          });
-      {% endfor %}
-    </script>
-    {% endif %}
   </body>
 
   

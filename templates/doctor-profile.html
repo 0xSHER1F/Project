@@ -210,69 +210,7 @@
                                         </div>
                                     </div>
                                     
-                                    <!-- Reviews Tab -->
-                                    {% comment %} <div role="tabpanel" id="doc_reviews" class="tab-pane fade">
-                                        {% if user.is_authenticated and user.is_patient %}
-                                            <!-- Review Form -->
-                                            <div class="write-review">
-                                                <h4>Write a review for <strong>Dr. {{ doctor.name }}</strong></h4>
-                                                
-                                                <form action="{% url 'doctor:doctor_review' pk=doctor.doctor_id %}" method="POST" enctype="multipart/form-data">
-                                                    {% csrf_token %}
-                                                    <div class="card card-table">
-                                                        <div class="card-body p-3">
-                                                            <h4 class="card-title"><b>Review</b></h4>
-                                                            <div class="doctor_review-info">
-                                                                <div class="row form-row">
-                                                                    <div class="col-12 col-md-12 col-lg-12">
-                                                                        <div class="form-group mb-3">
-                                                                            <label class="mb-1">Review Title</label>
-                                                                            <input type="text" class="form-control" name="title" id="title" required>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row form-row">
-                                                                    <div class="col-12 col-md-6 col-lg-8">
-                                                                        <div class="form-group mb-3">
-                                                                            <label class="mb-1">Message</label>
-                                                                            <textarea class="form-control" name="message" id="message" rows="5" required></textarea>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="submit-section submit-btn-bottom">
-                                                        <button type="submit" class="btn btn-primary submit-btn">Save Review</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        {% endif %}
-                                        
-                                        {% if user.is_authenticated and user.is_doctor %}
-                                            <!-- Review Listing -->
-                                            <div class="widget review-listing">
-                                                <h4 class="widget-title">Reviews</h4>
-                                                <ul class="comments-list">
-                                                    {% for review in doctor_review %}
-                                                        <li>
-                                                            <div class="comment">
-                                                                <img class="avatar avatar-sm rounded-circle" alt="User Image" src="{{ review.patient.featured_image.url }}">
-                                                                <div class="comment-body">
-                                                                    <div class="meta-data">
-                                                                        <span class="comment-author">{{ review.patient.name }}</span>
-                                                                    </div>
-                                                                    <p class="recommended"><i class="far fa-thumbs-up"></i> {{ review.title }}</p>
-                                                                    <p class="comment-content">{{ review.message }}</p>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    {% endfor %}
-                                                </ul>
-                                            </div>
-                                        {% endif %}
-                                    </div> {% endcomment %}
+                                    
                                 </div>
                             </div>
                         </div>
