@@ -1,138 +1,136 @@
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0"
+    />
+    <title>MediCare</title>
 
-<head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>MediCare</title>
-
-    	<!-- Favicon -->
+    <!-- Favicon -->
 
     <link
-	rel="shortcut icon"
-	type="image/x-icon"
-	href="{% static 'HealthStack-System/images/Normal/favicon.png' %}"
-  />
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{% static 'HealthStack-System/images/Normal/favicon.png' %}"
+    />
 
-  <!-- CSS Files -->
-  <link
-	rel="stylesheet"
-	href="{% static 'HealthStack-System/css/bootstrap.min.css' %}"
-  />
+    <!-- CSS Files -->
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/css/bootstrap.min.css' %}"
+    />
 
-  <link
-	rel="stylesheet"
-	href="{% static 'HealthStack-System/css/all.min.css' %}"
-  />
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/css/all.min.css' %}"
+    />
 
-  <!-- Main CSS -->
-  <link
-	rel="stylesheet"
-	href="{% static 'HealthStack-System/css/admin/style.css' %}"
-  />
-    </head>
-    <body>
-	
-		<!-- Main Wrapper -->
+    <!-- Main CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/css/admin/style.css' %}"
+    />
+  </head>
+  <body>
+    <!-- Main Wrapper -->
 
-		
-		<header class="header">
-			{% include 'hospital_admin/hospital-admin-navbar.html' %}
-		  </header>
-		  <!-- /Header -->
-	
-		  <!-- Sidebar -->
-		  <aside class="sidebar" id="sidebar">
-			{% include 'hospital_admin/hospital-admin-sidebar.html' %}
-		  </aside>
-		  <div class="sidebar-overlay" id="sidebarOverlay"></div>
-		  <!-- /Sidebar -->
-			
-			<!-- Page Wrapper -->
-            <div class="page-container registered-docs">
-                <div class="content container-fluid">
-				
-					<!-- Page Header -->
-<div class="page-header">
-	<div class="row">
-	  <div class="col-12">
-		<div class="text-center">
-		  <h1 class="page-title mb-0">
-			<i class="fas fa-hospital me-3"></i>
-			Registered Doctors
-		  </h1>
-		  
-		</div>
-	  </div>
-	</div>
-  </div>
-  <div class="doctors-table-container">
-	<div class="card">
-	  <div class="card-content">
-		<div class="table-wrapper table-responsive">
-		  <table class="doctors-table ">
-			<thead>
-			  <tr>
-				<th>Doctor Name</th>
-				<th>Email</th>
-				<th>Department</th>
-				<th>Hospital</th>
-				<th>Actions</th>
-			  </tr>
-			</thead>
-			<tbody>
-			  {% for doctor in doctors %}
-			  <tr>
-				<td>
-				  <div class="doctor-info">
-					<img 
-					  src="{{doctor.featured_image.url}}" 
-					  alt="{{doctor.name}} profile photo"
-					  class="doctor-avatar"
-					>
-					<a href="{% url 'admin-doctor-profile' doctor.doctor_id %}" class="doctor-name">
-					  {{doctor.name}}
-					</a>
-				  </div>
-				</td>
-				<td>{{doctor.email}}</td>
-				<td>{{doctor.department}}</td>
-				<td>{{doctor.hospital}}</td>
-				<td>
-				  <a 
-					href="{% url 'admin-doctor-profile' doctor.doctor_id %}" 
-					class="view-profile-btn"
-				  >
-					<span class="btn-icon">👁️</span>
-					<span class="btn-text">View Profile</span>
-				  </a>
-				</td>
-			  </tr>
-			  {% endfor %}
-			</tbody>
-		  </table>
-		</div>
-	  </div>
-	</div>
-  </div>
+    <div class="main-wrapper">
+      <header class="header">
+        {% include 'hospital_admin/hospital-admin-navbar.html' %}
+      </header>
+      <!-- /Header -->
+
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        {% include 'hospital_admin/hospital-admin-sidebar.html' %}
+      </aside>
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+      <!-- /Sidebar -->
+
+      <!-- Page Wrapper -->
+      <div class="page-container registered-docs">
+        <div class="content container-fluid">
+          <!-- Page Header -->
+          <div class="page-header">
+            <div class="row">
+              <div class="col-12">
+                <div class="text-center">
+                  <h1 class="page-title mb-0">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    Registered Doctors
+                  </h1>
                 </div>
-					
-			<!-- /Page Wrapper -->
-		
+              </div>
             </div>
+          </div>
+          <div class="doctors-table-container">
+            <div class="card">
+              <div class="card-content">
+                <div class="table-wrapper table-responsive">
+                  <table class="doctors-table">
+                    <thead>
+                      <tr>
+                        <th>Doctor Name</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Hospital</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for doctor in doctors %}
+                      <tr>
+                        <td>
+                          <div class="doctor-info">
+                            <img
+                              src="{{doctor.featured_image.url}}"
+                              alt="{{doctor.name}} profile photo"
+                              class="doctor-avatar"
+                            />
+                            <a
+                              href="{% url 'admin-doctor-profile' doctor.doctor_id %}"
+                              class="doctor-name"
+                            >
+                              {{doctor.name}}
+                            </a>
+                          </div>
+                        </td>
+                        <td>{{doctor.email}}</td>
+                        <td>{{doctor.department}}</td>
+                        <td>{{doctor.hospital}}</td>
+                        <td>
+                          <a
+                            href="{% url 'admin-doctor-profile' doctor.doctor_id %}"
+                            class="view-profile-btn"
+                          >
+                            <span class="btn-icon">👁️</span>
+                            <span class="btn-text">View Profile</span>
+                          </a>
+                        </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-		<!-- /Main Wrapper -->
-		
-		<!-- Scripts -->
-		<script src="{% static 'HealthStack-System/js/jquery.min.js' %}"></script>
-		<script src="{% static 'HealthStack-System/js/popper.min.js' %}"></script>
-		<script src="{% static 'HealthStack-System/js/bootstrap.bundle.min.js' %}"></script>
-		<script src="{% static 'HealthStack-System/js/all.min.js' %}"></script>
-		<script src="{% static 'HealthStack-System/js/admin.js' %}"></script>
-		
-    </body>
+        <!-- /Page Wrapper -->
+      </div>
+    </div>
 
+    <!-- /Main Wrapper -->
+
+    <!-- Scripts -->
+    <script src="{% static 'HealthStack-System/js/jquery.min.js' %}"></script>
+    <script src="{% static 'HealthStack-System/js/popper.min.js' %}"></script>
+    <script src="{% static 'HealthStack-System/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'HealthStack-System/js/all.min.js' %}"></script>
+    <script src="{% static 'HealthStack-System/js/admin.js' %}"></script>
+  </body>
 </html>
-
