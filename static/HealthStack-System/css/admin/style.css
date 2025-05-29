@@ -1818,8 +1818,8 @@ textarea.form-control {
 .page-container.departments .page-header,
 .page-container.add-hospital .page-header,
 .page-container.emergency-info .page-header,
-.page-container.emergency-edit .page-header, 
-.page-container.registered-docs .page-header ,
+.page-container.emergency-edit .page-header,
+.page-container.registered-docs .page-header,
 .page-container.pending-docs .page-header {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
@@ -2809,7 +2809,7 @@ textarea.form-control {
 }
 
 .emergency-edit .profile-image {
-  width:800px;
+  width: 800px;
   height: 300px;
   border-radius: 12px;
   object-fit: cover;
@@ -2899,11 +2899,11 @@ textarea.form-control {
   .emergency-edit .profile-content {
     padding: 1.5rem;
   }
-  
+
   .emergency-edit .form-fields-grid {
     grid-template-columns: 1fr;
   }
-  
+
   /* .emergency-edit .profile-image {
     width: 180px;
   } */
@@ -3015,21 +3015,19 @@ textarea.form-control {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
- 
-  
   .registered-docs .card-content {
     padding: 1rem;
   }
-  
+
   .registered-docs .doctors-table th,
   .registered-docs .doctors-table td {
     padding: 0.75rem;
   }
-  
+
   .registered-docs .view-profile-btn .btn-text {
     display: none;
   }
-  
+
   .registered-docs .view-profile-btn {
     padding: 0.5rem;
     border-radius: 50%;
@@ -3058,7 +3056,6 @@ textarea.form-control {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  
 }
 
 .pending-docs .doctor-profile {
@@ -3195,12 +3192,11 @@ textarea.form-control {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  
   .pending-docs .doctor-image img {
     width: 100px;
     height: 100px;
   }
-  
+
   .pending-docs .doctor-actions {
     justify-content: center;
   }
@@ -3210,12 +3206,12 @@ textarea.form-control {
   .pending-docs .doctor-card {
     padding: 1rem;
   }
-  
+
   .pending-docs .doctor-actions {
     flex-direction: column;
     gap: 0.5rem;
   }
-  
+
   .pending-docs .action-btn {
     justify-content: center;
   }
