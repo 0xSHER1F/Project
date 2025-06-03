@@ -147,7 +147,11 @@
             {% for doctor in doctors %}
             <div class="doctor">
               <div class="doctor-img">
+                {% if user.is_authenticated and user.is_hospital_admin %}
+                <a href="hospital_admin/admin-doctor-profile/{{doctor.pk}}"></a>
+                {% else %}
                 <a href="{% url 'doctor:doctor-profile' doctor.pk %}">
+                {% endif %}
                   <img
                     src="{{ doctor.featured_image.url }}"
                     alt="{{ doctor.name }}"
@@ -163,7 +167,8 @@
 
               <ul>
                 <li>
-                  <i class="fas fa-map-marker-alt me-2"></i> {{doctor.hospital_name }}
+                  <i class="fas fa-map-marker-alt me-2"></i>
+                  {{doctor.hospital_name }}
                 </li>
                 <li>
                   <i class="far fa-clock me-2"></i> {{ doctor.visiting_hour }}
@@ -220,10 +225,17 @@
                       class="img-fluid"
                     />
 
+                    {% if user.is_authenticated and user.is_hospital_admin %}
                     <a
-                      href="hospital-profile/{{ hospital.hospital_id }}"
-                      class="position-absolute"
-                    >
+                    href="hospital_admin/edit-hospital/{{ hospital.hospital_id }}"
+                    class="position-absolute"
+                      >
+                    {% else %}
+                      <a
+                    href="hospital-profile/{{ hospital.hospital_id }}"
+                    class="position-absolute"
+                      >
+                    {% endif %}
                       {{ hospital.name }}
                     </a>
                   </div>

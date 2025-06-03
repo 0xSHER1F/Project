@@ -1167,6 +1167,8 @@ textarea.form-control {
 .page-container.dashboard .table-container {
   overflow-x: auto;
   border-radius: 10px;
+  overflow-y: auto;
+  height: 450px;
 }
 
 .page-container.dashboard .modern-table {
@@ -3040,7 +3042,7 @@ textarea.form-control {
 
 .doctors-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
@@ -3185,6 +3187,12 @@ textarea.form-control {
   content: attr(data-confirm);
   display: none;
   /* JavaScript will handle this */
+}
+
+@media (max-width: 992px) {
+  .doctors-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Responsive Design */
