@@ -388,5 +388,207 @@
     <script src="{% static 'MediCare/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'MediCare/js/all.min.js' %}"></script>
     <script src="{% static 'MediCare/js/script.js' %}"></script>
+    <script>
+      // Dynamic Education and Experience Management Script
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Function to create a new education entry
+        function createEducationEntry() {
+          const educationEntry = document.createElement("div");
+          educationEntry.className = "education-item";
+          educationEntry.innerHTML = `
+          <div class="education-content">
+              <div class="form-grid">
+                  <div class="form-group">
+                      <label>Degree</label>
+                      <input
+                          type="text"
+                          name="degree[]"
+                          placeholder="Enter degree"
+                      />
+                  </div>
+
+                  <div class="form-group">
+                      <label>Institute</label>
+                      <input
+                          type="text"
+                          name="institute[]"
+                          placeholder="Enter institute name"
+                      />
+                  </div>
+
+                  <div class="form-group">
+                      <label>Year of Completion</label>
+                      <input
+                          type="text"
+                          name="year_of_completion[]"
+                          placeholder="Enter year"
+                      />
+                  </div>
+              </div>
+          </div>
+          <div class="education-actions">
+              <button type="button" class="btn-delete delete-education-item">
+                  <i class="fas fa-trash-alt"></i>
+              </button>
+          </div>
+      `;
+          return educationEntry;
+        }
+
+        // Function to create a new experience entry
+        function createExperienceEntry() {
+          const experienceEntry = document.createElement("div");
+          experienceEntry.className = "experience-item";
+          experienceEntry.innerHTML = `
+          <div class="experience-content">
+              <div class="form-grid">
+                  <div class="form-group">
+                      <label>Hospital Name</label>
+                      <input
+                          type="text"
+                          name="work_place_name[]"
+                          placeholder="Enter hospital name"
+                      />
+                  </div>
+
+                  <div class="form-group">
+                      <label>From</label>
+                      <input
+                          type="text"
+                          name="from_year[]"
+                          placeholder="Enter start year"
+                      />
+                  </div>
+
+                  <div class="form-group">
+                      <label>To</label>
+                      <input
+                          type="text"
+                          name="to_year[]"
+                          placeholder="Enter end year"
+                      />
+                  </div>
+
+                  <div class="form-group">
+                      <label>Designation</label>
+                      <input
+                          type="text"
+                          name="designation[]"
+                          placeholder="Enter designation"
+                      />
+                  </div>
+              </div>
+          </div>
+          <div class="experience-actions">
+              <button type="button" class="btn-delete delete-experience-item">
+                  <i class="fas fa-trash-alt"></i>
+              </button>
+          </div>
+      `;
+          return experienceEntry;
+        }
+
+        // Add Education Entry
+        const addEducationBtn = document.getElementById("addEducationBtn");
+        if (addEducationBtn) {
+          addEducationBtn.addEventListener("click", function () {
+            const educationList = document.querySelector(".education-list");
+            const newEducationEntry = createEducationEntry();
+            educationList.appendChild(newEducationEntry);
+          });
+        }
+
+        // Add Experience Entry
+        const addExperienceBtn = document.getElementById("addExperienceBtn");
+        if (addExperienceBtn) {
+          addExperienceBtn.addEventListener("click", function () {
+            const experienceList = document.querySelector(".experience-list");
+            const newExperienceEntry = createExperienceEntry();
+            experienceList.appendChild(newExperienceEntry);
+          });
+        }
+
+        // Delete Entry (using event delegation for dynamically added elements)
+        document.addEventListener("click", function (e) {
+          if (
+            e.target.closest(".delete-education-item, .delete-experience-item")
+          ) {
+            const deleteBtn = e.target.closest(
+              ".delete-education-item, .delete-experience-item"
+            );
+            const entryToDelete = deleteBtn.closest(
+              ".education-item, .experience-item"
+            );
+
+            if (entryToDelete) {
+              // Determine which list this entry belongs to
+              const educationList = document.querySelector(".education-list");
+              const experienceList = document.querySelector(".experience-list");
+
+              let remainingEntries;
+              let containerType = "";
+
+              if (educationList.contains(entryToDelete)) {
+                remainingEntries =
+                  educationList.querySelectorAll(".education-item").length;
+                containerType = "education";
+              } else if (experienceList.contains(entryToDelete)) {
+                remainingEntries =
+                  experienceList.querySelectorAll(".experience-item").length;
+                containerType = "experience";
+              }
+
+              // Only allow deletion if there will be at least 1 entry remaining
+              if (remainingEntries > 1) {
+                entryToDelete.remove();
+              } else {
+                alert(`At least one ${containerType} entry must remain.`);
+              }
+            }
+          }
+        });
+
+        // Handle existing delete links (for items loaded from backend)
+        document.addEventListener("click", function (e) {
+          if (
+            e.target.closest(
+              'a.btn-delete[href*="delete-education"], a.btn-delete[href*="delete-experience"]'
+            )
+          ) {
+            const deleteLink = e.target.closest("a.btn-delete");
+            const entryToDelete = deleteLink.closest(
+              ".education-item, .experience-item"
+            );
+
+            if (entryToDelete) {
+              // Determine which list this entry belongs to
+              const educationList = document.querySelector(".education-list");
+              const experienceList = document.querySelector(".experience-list");
+
+              let remainingEntries;
+              let containerType = "";
+
+              if (educationList.contains(entryToDelete)) {
+                remainingEntries =
+                  educationList.querySelectorAll(".education-item").length;
+                containerType = "education";
+              } else if (experienceList.contains(entryToDelete)) {
+                remainingEntries =
+                  experienceList.querySelectorAll(".experience-item").length;
+                containerType = "experience";
+              }
+
+              // Only allow deletion if there will be at least 1 entry remaining
+              if (remainingEntries <= 1) {
+                e.preventDefault();
+                alert(`At least one ${containerType} entry must remain.`);
+                return false;
+              }
+            }
+          }
+        });
+      });
+    </script>
   </body>
 </html>
