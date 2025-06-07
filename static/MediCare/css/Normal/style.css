@@ -3579,7 +3579,7 @@ table.table td h2 span {
   Test Cart
 -----------------------*/
 
-.patient.test-cart .card-title {
+/* .patient.test-cart .card-title {
   color: #333;
   font-weight: 600;
   margin-bottom: 2rem;
@@ -3718,7 +3718,7 @@ table.table td h2 span {
   text-align: center;
   padding: 3rem;
   color: #6c757d;
-}
+} */
 
 /*-----------------
 	--> Doctor Dashboard
