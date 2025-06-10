@@ -90,12 +90,12 @@
                                           <h4 class="doc-hospital">{{ doctor.hospital_name }}</h4>
                                           <p class="doc-department">{{ doctor.specialization.specialization_name }}</p>
                                           <div class="clinic-details">
-                                              <p class="doc-location"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</p>
+                                              
                                               <ul class="clinic-gallery">
                                                   {% for i in "1234" %}
                                                       <li>
-                                                          <a href="{% static 'HealthStack-System/images/Normal/gyno'|add:i|add:'.jpg' %}" data-fancybox="gallery">
-                                                              <img src="{% static 'HealthStack-System/images/Normal/gyno'|add:i|add:'.jpg' %}" alt="Clinic Image">
+                                                          <a href="{% static 'MediCare/images/Normal/gyno'|add:i|add:'.jpg' %}" data-fancybox="gallery">
+                                                              <img src="{% static 'MediCare/images/Normal/gyno'|add:i|add:'.jpg' %}" alt="Clinic Image">
                                                           </a>
                                                       </li>
                                                   {% endfor %}
