@@ -2689,6 +2689,8 @@ textarea.form-control {
 }
 
 .emergency-info .card-content {
+  max-height: 100vh;
+  overflow-y: auto;
   padding: 1.5rem;
 }
 

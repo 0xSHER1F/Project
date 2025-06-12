@@ -769,6 +769,8 @@ ul {
 
 .section-clinics .clinics-container,
 .section-doctors .doctors-container {
+  max-height: 80vh;
+  overflow-y: auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
