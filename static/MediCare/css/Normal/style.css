@@ -883,6 +883,8 @@ ul {
 .section-doctors .doctor ul li {
   display: flex;
   align-items: center;
+  max-width: 250px;
+  overflow: hidden;
 }
 
 .section-doctors .doctor ul svg {
@@ -2134,6 +2136,7 @@ ul {
 
 .hospital .experience-list {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
 }
 
