@@ -2924,6 +2924,8 @@ textarea.form-control {
 }
 
 .registered-docs .card-content {
+  overflow-y: auto;
+  max-height: 100vh;
   padding: 1.5rem;
 }
 

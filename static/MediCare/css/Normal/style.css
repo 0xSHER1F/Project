@@ -1684,7 +1684,7 @@ ul {
 
 .patient.profile-setting .form-control:read-only {
   background-color: #f8f9fa;
-  cursor: not-allowed;
+  cursor: pointer;
 }
 
 /* Submit Button */
@@ -4792,6 +4792,7 @@ table.table td h2 span {
 .doctor.patients .row-grid {
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
 }
 .doctor.patients .patient-card {
   background: white;
@@ -5267,6 +5268,7 @@ table.table td h2 span {
 .doctor.add-prescription .patient-avatar,
 .doctor.view-prescription .patient-avatar,
 .doctor.medical-record .patient-avatar {
+  max-width: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
